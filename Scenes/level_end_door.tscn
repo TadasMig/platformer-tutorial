@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://2trmmfhnyu7l"]
+[gd_scene load_steps=3 format=3 uid="uid://2trmmfhnyu7l"]
+
+[ext_resource type="Script" path="res://Scripts/level_end_door.gd" id="1_nd3r0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l21ja"]
 size = Vector2(16, 16)
 
 [node name="level_end_door" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_nd3r0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_l21ja")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
