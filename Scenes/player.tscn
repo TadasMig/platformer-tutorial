@@ -1,7 +1,23 @@
-[gd_scene load_steps=30 format=3 uid="uid://dm1tbck472uol"]
+[gd_scene load_steps=34 format=3 uid="uid://dm1tbck472uol"]
 
 [ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="1_1r32o"]
 [ext_resource type="Texture2D" uid="uid://ng8w724iapqr" path="res://Assets/sprites/knight.png" id="2_rxi2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62u2j"]
+atlas = ExtResource("2_rxi2x")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhdnw"]
+atlas = ExtResource("2_rxi2x")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jnbq"]
+atlas = ExtResource("2_rxi2x")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmldp"]
+atlas = ExtResource("2_rxi2x")
+region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ovsfu"]
 atlas = ExtResource("2_rxi2x")
@@ -105,6 +121,28 @@ region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ipngq"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62u2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhdnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jnbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmldp")
+}],
+"loop": true,
+"name": &"Die",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ovsfu")
@@ -207,16 +245,16 @@ script = ExtResource("1_1r32o")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_ipngq")
-animation = &"Idle"
+animation = &"Die"
 autoplay = "Idle"
+frame = 2
+frame_progress = 0.373698
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_folkd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 position = Vector2(0, -5)
 offset = Vector2(0, -50)
 zoom = Vector2(3, 3)
